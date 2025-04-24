@@ -48,4 +48,21 @@ class MemoryMemoRepositoryTest {
         assertThat(findMemo.getContent()).isNotEqualTo("토이프로젝트 진행하기");
     }
 
+    @Test
+    void findAll () {
+        //given
+        Memo memo1 = new Memo("eunsu", "todo", "토이프로젝트 진행하기");
+        Memo memo2 = new Memo("dongyoon", "todo", "병원가기");
+        Memo memo3 = new Memo("gaeun", "todo", "카페가기");
+
+        //when
+        store.save(memo1);
+        store.save(memo2);
+        store.save(memo3);
+
+        //then
+        List<Memo> memos = store.findAll();
+        assertThat(memos.size()).isEqualTo(3);
+    }
+
 }
