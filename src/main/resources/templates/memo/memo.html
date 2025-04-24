@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+        .container {
+        max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>메모 상세</h2>
+    </div>
+    <div>
+        <label for="memoId">메모 ID</label>
+        <input type="text" id="memoId" name="memoId" class="form-control"
+               value="1" th:value="${memo.id}" readonly>
+    </div>
+    <div>
+        <label for="memoTitle">제목</label>
+        <input type="text" id="memoTitle" name="memoTitle" class="form-control"
+               value="메모A" th:value="${memo.title}" readonly>
+    </div>
+    <div>
+        <label for="content">내용</label>
+        <input type="text" id="content" name="content" class="form-control"
+               value="content" th:value="${memo.content}" readonly>
+    </div>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-lg"
+                    onclick="location.href='editForm.html'"
+                    th:onclick="|location.href='@{/basic/items/{itemId}/edit(itemId=${item.id})}'|"
+                    type="button">수정</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='items.html'"
+                    th:onclick="|location.href='@{/basic/items}'|"
+                    type="button">목록</button>
+        </div>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
