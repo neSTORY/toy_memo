@@ -26,9 +26,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-src/main/java/toy/memo/domain
-src/main/java/toy/memo/repository
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
