@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+        .container {
+        max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>메모 수정 폼</h2>
+    </div>
+    <form action="item.html" th:action method="post">
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" class="form-control" value="제목"
+                   th:value="${memo.title}">
+        </div>
+        <div>
+            <label for="writer">작성자</label>
+            <input type="text" id="writer" name="writer" class="form-control"
+                   th:value="${memo.writer}">
+        </div>
+        <div>
+            <label for="content">수량</label>
+            <input type="text" id="content" name="content" class="form-control"
+                   th:value="${memo.content}">
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">저장</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='item.html'"
+                        th:onclick="|location.href='@{/memo/memos/{memoId}(memoId=${memo.id})}'|"
+                        type="button">취소</button>
+            </div>
+        </div>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>
